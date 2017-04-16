@@ -68,7 +68,7 @@ opcode:
 	| OUT out_port_8bit															# OUT					/* OUT C */
 
 	/* INT opcode */
-	| INT int																	# INT					/* INT */
+	| INT																		# INT					/* INT */
 	
 	/* HLT opcode */
 	| HLT																		# HLT					/* HLT */
