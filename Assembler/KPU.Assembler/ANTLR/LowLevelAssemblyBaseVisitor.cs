@@ -452,6 +452,16 @@ public partial class LowLevelAssemblyBaseVisitor<Result> : AbstractParseTreeVisi
 	/// <return>The visitor result.</return>
 	public virtual Result VisitOUT([NotNull] LowLevelAssemblyParser.OUTContext context) { return VisitChildren(context); }
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="LowLevelAssemblyParser.INT"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitINT([NotNull] LowLevelAssemblyParser.INTContext context) { return VisitChildren(context); }
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="LowLevelAssemblyParser.HLT"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>

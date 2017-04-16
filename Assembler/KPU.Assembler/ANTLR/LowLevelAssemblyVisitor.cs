@@ -323,6 +323,13 @@ public interface ILowLevelAssemblyVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitOUT([NotNull] LowLevelAssemblyParser.OUTContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>INT</c>
+	/// labeled alternative in <see cref="LowLevelAssemblyParser.opcode"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitINT([NotNull] LowLevelAssemblyParser.INTContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>HLT</c>
 	/// labeled alternative in <see cref="LowLevelAssemblyParser.opcode"/>.
 	/// </summary>

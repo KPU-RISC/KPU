@@ -33,6 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssemblyCode", "AssemblyCod
 		AssemblyCode\INC.asm = AssemblyCode\INC.asm
 		AssemblyCode\INCLUDE.asm = AssemblyCode\INCLUDE.asm
 		AssemblyCode\INCLUDE1.asm = AssemblyCode\INCLUDE1.asm
+		AssemblyCode\INT.asm = AssemblyCode\INT.asm
 		AssemblyCode\ITOA.asm = AssemblyCode\ITOA.asm
 		AssemblyCode\JMP.asm = AssemblyCode\JMP.asm
 		AssemblyCode\JMP_LABEL.asm = AssemblyCode\JMP_LABEL.asm

@@ -21,7 +21,7 @@ namespace KPU_Assembler
             if (!Directory.Exists(outputFolder))
                 Directory.CreateDirectory(outputFolder);
 
-            RunAssembler(rootFolder + @"AssemblyCode\CALCULATOR.asm");
+            RunAssembler(rootFolder + @"AssemblyCode\INT.asm");
            
             Console.WriteLine("Done");
             Console.ReadLine();

@@ -151,6 +151,9 @@ opcode:
 		| OUT out_port_8bit																	# OUT							/* OUT C */
 		| OUTB register_8bit																# OUTB							/* OUTB C */
 
+		/* INT opcode */
+		| INT int																			# INT							/* INT */
+
 		/* NOP opcodes */
 		| NOP																				# NOP							/* NOP */
 
@@ -205,6 +208,7 @@ OUT:	'OUT';
 OUTB:	'OUTB';
 ENTER:	'ENTER';
 LEAVE:	'LEAVE';
+INT:	'INT';
 NOP:	'NOP';
 HLT:	'HLT';
 DATA:	'DATA';

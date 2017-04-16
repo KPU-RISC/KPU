@@ -66,6 +66,9 @@ opcode:
 
 	/* OUT opcodes */
 	| OUT out_port_8bit															# OUT					/* OUT C */
+
+	/* INT opcode */
+	| INT int																	# INT					/* INT */
 	
 	/* HLT opcode */
 	| HLT																		# HLT					/* HLT */
@@ -119,6 +122,7 @@ CALL:				'CALL';
 RET:				'RET';
 IN:					'IN';
 OUT:				'OUT';
+INT:				'INT';
 DATA:				'DATA';
 
 /* Register Rules */

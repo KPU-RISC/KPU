@@ -582,6 +582,13 @@ public interface IHighLevelAssemblyVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitOUTB([NotNull] HighLevelAssemblyParser.OUTBContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>INT</c>
+	/// labeled alternative in <see cref="HighLevelAssemblyParser.opcode"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitINT([NotNull] HighLevelAssemblyParser.INTContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>NOP</c>
 	/// labeled alternative in <see cref="HighLevelAssemblyParser.opcode"/>.
 	/// </summary>

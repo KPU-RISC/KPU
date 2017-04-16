@@ -64,6 +64,7 @@
     <Compile Include="HighLevel\ENTER\ENTER.cs" />
     <Compile Include="HighLevel\HLT\HLT.cs" />
     <Compile Include="HighLevel\INC\INC_R8.cs" />
+    <Compile Include="HighLevel\INT\INT.cs" />
     <Compile Include="HighLevel\IN\IN.cs" />
     <Compile Include="HighLevel\JMP\CALL.cs" />
     <Compile Include="HighLevel\JMP\JMP.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="LowLevel\HLT.cs" />
     <Compile Include="LowLevel\IN.cs" />
     <Compile Include="LowLevel\INBUFFER_TO_FLAGS.cs" />
+    <Compile Include="LowLevel\INT.cs" />
     <Compile Include="LowLevel\JMP.cs" />
     <Compile Include="LowLevel\JMP_LABEL.cs" />
     <Compile Include="LowLevel\JNC.cs" />
