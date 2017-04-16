@@ -19,9 +19,9 @@ The following 16-bit wide registers are implemented:
 <li>PC (Program Counter)</li>
 <li>M (Memory Addressing)</li>
 <li>J (Jump Destination Addressing)</li>
-<li>X</li>
-<li>Y</li>
-<li>Z</li>
+<li>X (General Purpose)</li>
+<li>Y (General Purpose)</li>
+<li>Z (General Purpose)</li>
 </ul>
 
 The project contains the following sub components:
