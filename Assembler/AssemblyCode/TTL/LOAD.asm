@@ -1,0 +1,11 @@
+MOV XL, 11111110b
+MOV XH, 0x00
+MOV M, X
+
+; Initialize the D and E register
+MOV E, [M]
+MOV D, 00000001b
+
+ADD E, D
+
+DATA 0000000011111110b, 11001100b

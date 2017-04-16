@@ -1,0 +1,11 @@
+XOR D, D
+XOR E, E
+
+; 89
+MOV D, 01011001b
+
+; 23
+MOV E, 00010111b
+
+; D contains 112 (01110000b)
+ADD D, E

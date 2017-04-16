@@ -1,0 +1,20 @@
+; Set register D to "10001111"
+SET A, "1000"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT D
+
+; Perform the NOT operation
+MOV_ALU_IN A, D
+NOT
+MOV_ALU_OUT F
+
+HLT

@@ -1,0 +1,35 @@
+NOP:START
+; Set register D to "10001111"
+SET A, "1000"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT D
+
+; Set register E to "00001111"
+SET A, "0000"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT E
+
+
+
+; Jump back to the beginning of the pogram
+JMP :START
+
+HLT

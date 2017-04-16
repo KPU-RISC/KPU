@@ -1,0 +1,151 @@
+; Set register XL to "11111111"
+SET A, "1111"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT XL
+
+; Set register XH to "11111111"
+SET A, "1111"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT XH
+MOV16 SP, X
+
+; Set register D to "00000001"
+SET A, "0000"
+SET B, "0001"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT D
+
+; Set register E to "00000001"
+SET A, "0000"
+SET B, "0001"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT E
+
+; Perform a "SUB D, E" operation
+; This sets the Zero flag to 1
+MOV_ALU_IN A, E
+NOT
+MOV_ALU_C_TO_AB A
+SET B, "0001"
+ADD
+MOV_ALU_C_TO_AB B
+MOV_ALU_IN A, D
+ADD
+MOV_ALU_OUT D
+
+; ====================
+; PUSHF implementation
+; ====================
+
+; 1. Store the flags in the "FlagsOutBuffer"
+FLAGS_TO_OUTBUFFER
+
+; 2. Store the flags from the "FlagsOutBuffer" onto the stack
+MOV16 M, SP
+STORE_FLAGS
+
+; 3. Decrement the stack pointer by 1
+
+; 3.1. Set register XL to "11111111"
+SET A, "1111"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT XL
+
+; 3.2. Set register XH to "11111111"
+SET A, "1111"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT XH
+
+; 3.3. Decrement the stack pointer
+MOV16 J, X
+MOV16 X, SP
+16BIT_ADDER
+MOV16 SP, X
+
+; =====================
+
+; Set register XL to "11111111"
+SET A, "1111"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT XL
+
+; Set register XH to "11111111"
+SET A, "1111"
+SET B, "1111"
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+SHL
+MOV_ALU_C_TO_AB A
+OR
+MOV_ALU_OUT XH
+
+; Load the flags (value "110") from the stack into the register G
+MOV16 M, X
+LOAD G
+
+HLT

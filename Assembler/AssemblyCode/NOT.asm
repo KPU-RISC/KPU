@@ -1,0 +1,35 @@
+; Write register D to the Output Port
+MOV D, 11110000b
+MOV E, 00001111b
+
+NOT D
+NOT D
+SHR D
+
+NOT E
+NOT E
+SHL E
+
+NOT D
+NOT D
+SHR D
+
+NOT E
+NOT E
+SHL E
+
+NOT D
+NOT D
+SHR D
+
+NOT E
+NOT E
+SHL E
+
+NOT D
+NOT D
+SHR D
+
+NOT E
+NOT E
+SHL E

@@ -1,0 +1,4 @@
+XOR E, E
+MOV E, 00000001b
+
+SUB D, E
