@@ -3,25 +3,25 @@ This repository contains complete source code and buillding files for the KPU - 
 
 It implements a 8-bit wide Data Bus, and a 16-bit wide Address Bus. The following 8-bit wide registers are implemented:
 <ul>
-<li>D (General Purpose)</li>
-<li>E (General Purpose)</li>
-<li>F (General Purpose)</li>
-<li>G (General Purpose)</li>
-<li>H (General Purpose)</li>
-<li>XL (Lower part of the 16-bit wide "X" register</li>
-<li>XH (Upper part of the 16-bit wide "X" register</li>
+<li><b>D</b> (General Purpose)</li>
+<li><b>E</b> (General Purpose)</li>
+<li><b>F</b> (General Purpose)</li>
+<li><b>G</b> (General Purpose)</li>
+<li><b>H</b> (General Purpose)</li>
+<li><b>XL</b> (Lower part of the 16-bit wide "X" register</li>
+<li><b>XH</b> (Upper part of the 16-bit wide "X" register</li>
 </ul>
 
 The following 16-bit wide registers are implemented:
 <ul>
-<li>SP (Stack Pointer)</li>
-<li>BP (Base Pointer)</li>
-<li>PC (Program Counter)</li>
-<li>M (Memory Addressing)</li>
-<li>J (Jump Destination Addressing)</li>
-<li>X (General Purpose)</li>
-<li>Y (General Purpose)</li>
-<li>Z (General Purpose)</li>
+<li><b>SP</b> (Stack Pointer)</li>
+<li><b>BP</b> (Base Pointer)</li>
+<li><b>PC</b> (Program Counter)</li>
+<li><b>M</b> (Memory Addressing)</li>
+<li><b>J</b> (Jump Destination Addressing)</li>
+<li><b>X</b> (General Purpose)</li>
+<li><b>Y</b> (General Purpose)</li>
+<li><b>Z</b> (General Purpose)</li>
 </ul>
 
 The project contains the following sub components:
