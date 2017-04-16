@@ -30,5 +30,5 @@ The project contains the following sub components:
 <li><b>Emulation</b>: The C#-based Emulator is able to run binary code in a Console application or within a WinForms application (used for debugging purposes).</li>
 <li><b>VHDL</b>: This folder contains the whole CPU implementation as VHDL description files.</li>
 <li><b>Eagle</b>: This folder contains the whole schematics and board files ready for a physical implementation of the CPU based on 74LS TTL logic chips.</li>
-<li>Logicly: This folder contains early Proof-Of-Concept files for the Logicly simulation program.</li>
+<li><b>Logicly</b>: This folder contains early Proof-Of-Concept files for the Logicly simulation program.</li>
 <ul>
