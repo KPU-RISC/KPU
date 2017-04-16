@@ -192,6 +192,10 @@
     <None Include="ANTLR\LowLevelAssemblyLexer.tokens" />
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="References\antlr-4.5-complete.jar" />
+    <Content Include="References\Antlr4.Runtime.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>$(ProjectDir)\ANTLR\build.bat</PreBuildEvent>
