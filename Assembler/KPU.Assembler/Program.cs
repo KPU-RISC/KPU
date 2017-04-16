@@ -13,16 +13,16 @@ namespace KPU_Assembler
 {
     public class Program
     {
+        private static string rootFolder = @"c:\Github\KPU\Assembler\";
+        private static string outputFolder = rootFolder + @"Output\";
+
         private static void Main(string[] args)
         {
-            RunAssembler(@"Z:\Klaus\OneDrive\KPU\AssemblyCode\CALCULATOR.asm");
-            // RunAssembler(@"Z:\Klaus\OneDrive\KPU\AssemblyCode\TTL\ADD_LOOP.asm");
+            if (!Directory.Exists(outputFolder))
+                Directory.CreateDirectory(outputFolder);
 
-            // GenerateASCIIOutputFile();
-
-            // string bits = FloatingPointToBinary(-123.67f);
-            // Console.WriteLine(bits);
-
+            RunAssembler(rootFolder + @"AssemblyCode\CALCULATOR.asm");
+           
             Console.WriteLine("Done");
             Console.ReadLine();
         }
@@ -79,11 +79,11 @@ namespace KPU_Assembler
 
         private static void GenerateArduinoLoadFile()
         {
-            using (System.IO.StreamReader inputFile = new System.IO.StreamReader(@"Z:\Klaus\OneDrive\KPU\BinaryCode.bin"))
+            using (System.IO.StreamReader inputFile = new System.IO.StreamReader(outputFolder + "BinaryCode.bin"))
             {
                 List<string> programLines = ReadProgram(inputFile);
 
-                using (System.IO.StreamWriter outputFile = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\InitializeSRAM\Arduino.c"))
+                using (System.IO.StreamWriter outputFile = new System.IO.StreamWriter(outputFolder + "Arduino.c"))
                 {
                     outputFile.WriteLine("void AssemblyCodeLoader()");
                     outputFile.WriteLine("{");
@@ -115,8 +115,8 @@ namespace KPU_Assembler
         }
 
         private static void GenerateASCIIOutputFile()
-        {   
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"Z:\Klaus\OneDrive\KPU\OutputData.bin"))
+        {
+            using (System.IO.StreamReader file = new System.IO.StreamReader(outputFolder + "OutputData.bin"))
             {
                 List<string> outputLines = ReadProgram(file);
                 string result = string.Empty;
@@ -132,7 +132,7 @@ namespace KPU_Assembler
                     }
                 }
 
-                using (System.IO.StreamWriter outputFile = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\OutputData.txt"))
+                using (System.IO.StreamWriter outputFile = new System.IO.StreamWriter(outputFolder + "OutputData.txt"))
                 {
                     outputFile.Write(result);
                 }
@@ -141,12 +141,12 @@ namespace KPU_Assembler
 
         private static void GenerateMapFile()
         {
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"Z:\Klaus\OneDrive\KPU\BinaryCode.bin"))
+            using (System.IO.StreamReader file = new System.IO.StreamReader(outputFolder + "BinaryCode.bin"))
             {
                 List<string> programLines = ReadProgram(file);
                 List<string> functionNames = FindFunctionNames(programLines);
 
-                using (System.IO.StreamWriter fileMap = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\BinaryCode.map"))
+                using (System.IO.StreamWriter fileMap = new System.IO.StreamWriter(outputFolder + "BinaryCode.map"))
                 {
                     foreach (string function in functionNames)
                     {
@@ -191,7 +191,7 @@ namespace KPU_Assembler
                 List<string> includeFiles = FindIncludeFiles(programLines);
                 List<string> dataEntries = new List<string>();
 
-                using (System.IO.StreamWriter filePreProcessor = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\PreProcessor.asm"))
+                using (System.IO.StreamWriter filePreProcessor = new System.IO.StreamWriter(outputFolder + "PreProcessor.asm"))
                 {
                     // Write out the original file
                     foreach (string line in programLines)
@@ -213,7 +213,7 @@ namespace KPU_Assembler
                         try
                         {
                             // Appening every include file at the end of the newly written file
-                            using (System.IO.StreamReader includeFileReader = new System.IO.StreamReader(@"Z:\Klaus\OneDrive\KPU\AssemblyCode\" + inc))
+                            using (System.IO.StreamReader includeFileReader = new System.IO.StreamReader(rootFolder + @"AssemblyCode\" + inc))
                             {
                                 List<string> programLinesIncludeFile = ReadProgram(includeFileReader);
 
@@ -261,7 +261,7 @@ namespace KPU_Assembler
 
         private static void GenerateLowLevelAssemblyCode()
         {
-            using (StreamReader preProcesserReader = new StreamReader(@"Z:\Klaus\OneDrive\KPU\PreProcessor.asm"))
+            using (StreamReader preProcesserReader = new StreamReader(outputFolder + "PreProcessor.asm"))
             {
                 AntlrInputStream input = new AntlrInputStream(preProcesserReader);
                 HighLevelAssemblyLexer lexer = new HighLevelAssemblyLexer(input);
@@ -273,7 +273,7 @@ namespace KPU_Assembler
                 HighLevelAssemblyVisitor<string> eval = new HighLevelAssemblyVisitor<string>();
                 eval.Visit(tree);
 
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\Assembly_LowLevel.asm"))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(outputFolder + "Assembly_LowLevel.asm"))
                 {
                     foreach (string line in eval.Assembly)
                     {
@@ -285,7 +285,7 @@ namespace KPU_Assembler
 
         private static void GenerateBinaryCode()
         {
-            using (StreamReader lowLevelAssemblyReader = new StreamReader(@"Z:\Klaus\OneDrive\KPU\Assembly_LowLevel.asm"))
+            using (StreamReader lowLevelAssemblyReader = new StreamReader(outputFolder + "Assembly_LowLevel.asm"))
             {
                 AntlrInputStream input = new AntlrInputStream(lowLevelAssemblyReader);
                 LowLevelAssemblyLexer lexer = new LowLevelAssemblyLexer(input);
@@ -297,7 +297,7 @@ namespace KPU_Assembler
                 LowLevelAssemblyVisitor<string> eval = new LowLevelAssemblyVisitor<string>();
                 eval.Visit(tree);
 
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\BinaryCode_1stPass.bin"))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(outputFolder + "BinaryCode_1stPass.bin"))
                 {
                     int i = 0;
 
@@ -320,7 +320,7 @@ namespace KPU_Assembler
             }
 
             // The following code changes the address placeholders to the correct target addresses of the jump locations
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"Z:\Klaus\OneDrive\KPU\BinaryCode_1stPass.bin"))
+            using (System.IO.StreamReader file = new System.IO.StreamReader(outputFolder + "BinaryCode_1stPass.bin"))
             {
                 List<string> programLines = ReadProgram(file);
                 List<string> jumps = FindJumps(programLines);
@@ -347,7 +347,7 @@ namespace KPU_Assembler
                     programLines = FixDataEntries(memoryAddress, data, programLines);
                 }
 
-                using (System.IO.StreamWriter finalFile = new System.IO.StreamWriter(@"Z:\Klaus\OneDrive\KPU\BinaryCode.bin"))
+                using (System.IO.StreamWriter finalFile = new System.IO.StreamWriter(outputFolder + "BinaryCode.bin"))
                 {
                     foreach (string line in programLines)
                     {
@@ -360,7 +360,7 @@ namespace KPU_Assembler
         private static void CheckForDuplicateMemoryAddresses()
         {
             // The following code changes the address placeholders to the correct target addresses of the jump locations
-            using (System.IO.StreamReader file = new System.IO.StreamReader(@"Z:\Klaus\OneDrive\KPU\BinaryCode.bin"))
+            using (System.IO.StreamReader file = new System.IO.StreamReader(outputFolder + "BinaryCode.bin"))
             {
                 List<string> programLines = ReadProgram(file);
                 Hashtable ht = new Hashtable();

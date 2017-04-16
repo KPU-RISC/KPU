@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from Z:\Klaus\OneDrive\KPU\KPU_Assembler\ANTLR\HighLevelAssembly.g4 by ANTLR 4.5
+// Generated from C:\Github\KPU\Assembler\KPU.Assembler\ANTLR\HighLevelAssembly.g4 by ANTLR 4.5
 
 // Unreachable code detected
 #pragma warning disable 0162
