@@ -31,6 +31,6 @@ The project contains the following sub components:
 <li><b>VHDL</b>: This folder contains the whole CPU implementation as VHDL description files.</li>
 <li><b>Eagle</b>: This folder contains the whole schematics and board files ready for a physical implementation of the CPU based on 74LS TTL logic chips.</li>
 <li><b>Logicly</b>: This folder contains early Proof-Of-Concept files for the Logicly simulation program.</li>
-<ul>
+</ul>
 
 For more detailed technical information about the CPU, please visit the project website at http://www.cpu-design.at
