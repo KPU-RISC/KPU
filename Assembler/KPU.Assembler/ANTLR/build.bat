@@ -1,0 +1,2 @@
+java -jar Z:\Klaus\OneDrive\KPU\KPU_Assembler\References\antlr-4.5-complete.jar -no-listener -visitor -Dlanguage=CSharp Z:\Klaus\OneDrive\KPU\KPU_Assembler\ANTLR\HighLevelAssembly.g4
+java -jar Z:\Klaus\OneDrive\KPU\KPU_Assembler\References\antlr-4.5-complete.jar -no-listener -visitor -Dlanguage=CSharp Z:\Klaus\OneDrive\KPU\KPU_Assembler\ANTLR\LowLevelAssembly.g4

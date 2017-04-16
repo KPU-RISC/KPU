@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B04CF3B-E71E-43D9-BEC7-A3520797562A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KPU.Assembler</RootNamespace>
+    <AssemblyName>KPU.Assembler</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr4.Runtime">
+      <HintPath>References\Antlr4.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ANTLR\HighLevelAssemblyBaseVisitor.cs" />
+    <Compile Include="ANTLR\HighLevelAssemblyLexer.cs" />
+    <Compile Include="ANTLR\HighLevelAssemblyParser.cs" />
+    <Compile Include="ANTLR\HighLevelAssemblyVisitor.cs" />
+    <Compile Include="ANTLR\LowLevelAssemblyBaseVisitor.cs" />
+    <Compile Include="ANTLR\LowLevelAssemblyLexer.cs" />
+    <Compile Include="ANTLR\LowLevelAssemblyParser.cs" />
+    <Compile Include="ANTLR\LowLevelAssemblyVisitor.cs" />
+    <Compile Include="HighLevelAssemblyVisitor.cs" />
+    <Compile Include="HighLevelAssemblyVisitor_Helper.cs" />
+    <Compile Include="HighLevel\ADC\ADC_R8_R8.cs" />
+    <Compile Include="HighLevel\ADD\ADD_R16_CONST.cs" />
+    <Compile Include="HighLevel\ADD\ADD_R8_R8.cs" />
+    <Compile Include="HighLevel\AND\AND_R8_R8.cs" />
+    <Compile Include="HighLevel\CMP\CMP_R8_R8.cs" />
+    <Compile Include="HighLevel\DATA\DATA.cs" />
+    <Compile Include="HighLevel\DEC\DEC_R8.cs" />
+    <Compile Include="HighLevel\ENTER\ENTER.cs" />
+    <Compile Include="HighLevel\HLT\HLT.cs" />
+    <Compile Include="HighLevel\INC\INC_R8.cs" />
+    <Compile Include="HighLevel\IN\IN.cs" />
+    <Compile Include="HighLevel\JMP\CALL.cs" />
+    <Compile Include="HighLevel\JMP\JMP.cs" />
+    <Compile Include="HighLevel\JMP\JMP_LABEL.cs" />
+    <Compile Include="HighLevel\JMP\JNC.cs" />
+    <Compile Include="HighLevel\JMP\JNS.cs" />
+    <Compile Include="HighLevel\JMP\JNZ.cs" />
+    <Compile Include="HighLevel\JMP\JZ.cs" />
+    <Compile Include="HighLevel\JMP\RET.cs" />
+    <Compile Include="HighLevel\LEAVE\LEAVE.cs" />
+    <Compile Include="HighLevel\MOV\MOV16.cs" />
+    <Compile Include="HighLevel\MOV\MOV_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\MOV\MOV_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\MOV\MOV_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\MOV\MOV_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INO_R16\MOV_INO_R16_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INO_R16\MOV_INO_R16_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INO_R16\MOV_INO_R16_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INO_R16\MOV_INO_R16_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INO_R16\MOV_INO_R16_R8.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INO_R8_R16.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INRO_R16\MOV_INRO_R16_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INRO_R16\MOV_INRO_R16_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INRO_R16\MOV_INRO_R16_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INRO_R16\MOV_INRO_R16_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INRO_R16\MOV_INRO_R16_R8.cs" />
+    <Compile Include="HighLevel\MOV\MOV_INRO_R8_R16.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPO_R16\MOV_IPO_R16_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPO_R16\MOV_IPO_R16_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPO_R16\MOV_IPO_R16_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPO_R16\MOV_IPO_R16_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPO_R16\MOV_IPO_R16_R8.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPO_R8_R16.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPRO_R16\MOV_IPRO_R16_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPRO_R16\MOV_IPRO_R16_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPRO_R16\MOV_IPRO_R16_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPRO_R16\MOV_IPRO_R16_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPRO_R16\MOV_IPRO_R16_R8.cs" />
+    <Compile Include="HighLevel\MOV\MOV_IPRO_R8_R16.cs" />
+    <Compile Include="HighLevel\MOV\MOV_I_R16\MOV_I_R16_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\MOV\MOV_I_R16\MOV_I_R16_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\MOV\MOV_I_R16\MOV_I_R16_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\MOV\MOV_I_R16\MOV_I_R16_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\MOV\MOV_I_R16\MOV_I_R16_R8.cs" />
+    <Compile Include="HighLevel\MOV\MOV_I_R8_R16.cs" />
+    <Compile Include="HighLevel\MOV\MOV_R8_R8.cs" />
+    <Compile Include="HighLevel\NEG\NEG_R8.cs" />
+    <Compile Include="HighLevel\NOP\NOP.cs" />
+    <Compile Include="HighLevel\NOT\NOT_R8.cs" />
+    <Compile Include="HighLevel\OR\OR_R8_R8.cs" />
+    <Compile Include="HighLevel\OUTB\OUTB.cs" />
+    <Compile Include="HighLevel\OUT\OUT.cs" />
+    <Compile Include="HighLevel\POPF\POPF.cs" />
+    <Compile Include="HighLevel\POP\POP_R16.cs" />
+    <Compile Include="HighLevel\POP\POP_R8.cs" />
+    <Compile Include="HighLevel\PUSHF\PUSHF.cs" />
+    <Compile Include="HighLevel\PUSH\PUSH_CONST_BINARY.cs" />
+    <Compile Include="HighLevel\PUSH\PUSH_CONST_DECIMAL.cs" />
+    <Compile Include="HighLevel\PUSH\PUSH_CONST_HEX1.cs" />
+    <Compile Include="HighLevel\PUSH\PUSH_CONST_HEX2.cs" />
+    <Compile Include="HighLevel\PUSH\PUSH_R16.cs" />
+    <Compile Include="HighLevel\PUSH\PUSH_R8.cs" />
+    <Compile Include="HighLevel\RCL\RCL_R8.cs" />
+    <Compile Include="HighLevel\RCR\RCR_R8.cs" />
+    <Compile Include="HighLevel\SAR\SAR_R8.cs" />
+    <Compile Include="HighLevel\SBB\SBB_R8_R8.cs" />
+    <Compile Include="HighLevel\SHL\SHL_R8.cs" />
+    <Compile Include="HighLevel\SHR\SHR_R8.cs" />
+    <Compile Include="HighLevel\SUB\SUB_R16_CONST.cs" />
+    <Compile Include="HighLevel\SUB\SUB_R8_R8.cs" />
+    <Compile Include="HighLevel\XOR\XOR_R8_R8.cs" />
+    <Compile Include="LowLevelAssemblyVisitor.cs" />
+    <Compile Include="LowLevelAssemblyVisitor_Helper.cs" />
+    <Compile Include="LowLevel\16BIT_ADDER.cs" />
+    <Compile Include="LowLevel\ADC.cs" />
+    <Compile Include="LowLevel\ADD.cs" />
+    <Compile Include="LowLevel\AND.cs" />
+    <Compile Include="LowLevel\DATA.cs" />
+    <Compile Include="LowLevel\FLAGS_TO_OUTBUFFER.cs" />
+    <Compile Include="LowLevel\HLT.cs" />
+    <Compile Include="LowLevel\IN.cs" />
+    <Compile Include="LowLevel\INBUFFER_TO_FLAGS.cs" />
+    <Compile Include="LowLevel\JMP.cs" />
+    <Compile Include="LowLevel\JMP_LABEL.cs" />
+    <Compile Include="LowLevel\JNC.cs" />
+    <Compile Include="LowLevel\JNS.cs" />
+    <Compile Include="LowLevel\JNZ.cs" />
+    <Compile Include="LowLevel\JZ.cs" />
+    <Compile Include="LowLevel\LOAD.cs" />
+    <Compile Include="LowLevel\LOAD_FLAGS.cs" />
+    <Compile Include="LowLevel\MACRO.cs" />
+    <Compile Include="LowLevel\MOV.cs" />
+    <Compile Include="LowLevel\MOV16.cs" />
+    <Compile Include="LowLevel\MOV8.cs" />
+    <Compile Include="LowLevel\MOV_ALU_C_TO_AB.cs" />
+    <Compile Include="LowLevel\MOV_ALU_IN.cs" />
+    <Compile Include="LowLevel\MOV_ALU_OUT.cs" />
+    <Compile Include="LowLevel\NEG.cs" />
+    <Compile Include="LowLevel\NOP.cs" />
+    <Compile Include="LowLevel\NOT.cs" />
+    <Compile Include="LowLevel\OR.cs" />
+    <Compile Include="LowLevel\OUT.cs" />
+    <Compile Include="LowLevel\RCL.cs" />
+    <Compile Include="LowLevel\RCR.cs" />
+    <Compile Include="LowLevel\RESTORE_FLAGS.cs" />
+    <Compile Include="LowLevel\SAR.cs" />
+    <Compile Include="LowLevel\SAVE_FLAGS.cs" />
+    <Compile Include="LowLevel\SBB.cs" />
+    <Compile Include="LowLevel\SET_AB.cs" />
+    <Compile Include="LowLevel\SHL.cs" />
+    <Compile Include="LowLevel\SHR.cs" />
+    <Compile Include="LowLevel\STORE.cs" />
+    <Compile Include="LowLevel\STORE_FLAGS.cs" />
+    <Compile Include="LowLevel\SUB.cs" />
+    <Compile Include="LowLevel\XOR.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ANTLR\build.bat" />
+    <None Include="ANTLR\HighLevelAssembly.g4" />
+    <None Include="ANTLR\HighLevelAssembly.tokens" />
+    <None Include="ANTLR\HighLevelAssemblyLexer.tokens" />
+    <None Include="ANTLR\LowLevelAssembly.g4" />
+    <None Include="ANTLR\LowLevelAssembly.tokens" />
+    <None Include="ANTLR\LowLevelAssemblyLexer.tokens" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(ProjectDir)\ANTLR\build.bat</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
