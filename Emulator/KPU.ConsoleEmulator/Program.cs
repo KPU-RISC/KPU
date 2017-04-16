@@ -12,6 +12,7 @@ namespace KPU.ConsoleEmulator
     public class Program
     {
         private static Processor cpu;
+        private static BIOS bios;
         private static string rootFolder = @"C:\Github\KPU\Assembler\Output\";
         
         public static void Main(string[] args)
@@ -20,10 +21,15 @@ namespace KPU.ConsoleEmulator
             string outC, outD;
             char keyPressed = ' ';
 
+            // Initialize the BIOS
+            bios = new BIOS(rootFolder + "VirtualDisk.img");
+
+            // Load the binary code and initialize the CPU
             LoadBinaryCode();
 
             while (context != CPUExecution.FINISHED)
             {
+                // Execute the next instruction
                 context = cpu.SingleStep(out outC, out outD);
 
                 if (context == CPUExecution.IN_A)
@@ -47,10 +53,11 @@ namespace KPU.ConsoleEmulator
                     switch (cpu.XL.GetInt())
                     {
                         case 1:
-                            {
-                                HandleHardDiskInterrupt();
-                                break;
-                            }
+                        {
+                            // Interrupt 1 is used for accessing hard disks
+                            HandleHardDiskInterrupt();
+                            break;
+                        }
                         default:
                             throw new ArgumentException("Invalid Interrupt Number!");
                     }
@@ -82,26 +89,41 @@ namespace KPU.ConsoleEmulator
         /// </summary>
         private static void HandleHardDiskInterrupt()
         {
-            int SECTOR_SIZE = 512;
-
-            using (StreamReader reader = new StreamReader(rootFolder + "VirtualDisk.img"))
-            {    
-                // int sectorsToRead = cpu.F.GetInt();
-                // int startSector = cpu.E.GetInt();
-                // int startMemoryAddress = cpu.Y.GetInt();
-                int sectorsToRead = 1;
-                int startSector = 0;
-                int startMemoryAddress = 128;
-                int i = 0;
-
-                char[] buffer = new char[sectorsToRead * SECTOR_SIZE];
-                reader.ReadBlock(buffer, startSector * SECTOR_SIZE, sectorsToRead * SECTOR_SIZE);
-
-                foreach (char c in buffer)
+            switch (cpu.D.GetInt())
+            {
+                case 1:
                 {
-                    cpu.WriteSRAMValue(startMemoryAddress + i, (byte)c);
-                    i++;
+                    // Read the requested disk sectors from the virtual disk
+                    byte[] data = bios.ReadDiskSector(cpu.E.GetInt(), cpu.F.GetInt());
+                    int startMemoryAddress = cpu.Y.GetInt();
+                    int i = 0;
+
+                    // Write the read data into the SRAM memory
+                    foreach (byte b in data)
+                    {
+                        cpu.WriteSRAMValue(startMemoryAddress + i, b);
+                        i++;
+                    }
+
+                    break;
                 }
+                case 2:
+                {
+                    int startMemoryAddress = cpu.Y.GetInt();
+                    byte[] data = new byte[BIOS.SECTOR_SIZE];
+                    int i = 0;
+
+                    // Get the data to be written from the SRAM memory
+                    for (i = 0; i < BIOS.SECTOR_SIZE; i++)
+                    {
+                        data[i] = cpu.LoadSRAMValue(startMemoryAddress + i);
+                    }
+
+                    // Write the disk sector back to the virtual disk
+                    bios.WriteDiskSector(cpu.E.GetInt(), data);
+                    break;
+                }
+                default: throw new ArgumentException("Invalid Disk Service!");
             }
         }
 

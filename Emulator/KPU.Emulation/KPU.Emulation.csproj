@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIOS.cs" />
     <Compile Include="CPUExecution.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="InstructionRegister.cs" />
