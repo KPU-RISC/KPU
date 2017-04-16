@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KPU.Emulation", "KPU.Emulation\KPU.Emulation.csproj", "{178CDCBC-0B24-4FF2-AA8C-8F2540D38474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KPU.Emulator", "KPU.Emulator\KPU.Emulator.csproj", "{30E90CBB-89BF-4545-860E-4D13049F8B44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KPU.ConsoleEmulator", "KPU.ConsoleEmulator\KPU.ConsoleEmulator.csproj", "{1CF256B0-826E-423E-BB15-7DAF89572F7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{178CDCBC-0B24-4FF2-AA8C-8F2540D38474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{178CDCBC-0B24-4FF2-AA8C-8F2540D38474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{178CDCBC-0B24-4FF2-AA8C-8F2540D38474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{178CDCBC-0B24-4FF2-AA8C-8F2540D38474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E90CBB-89BF-4545-860E-4D13049F8B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E90CBB-89BF-4545-860E-4D13049F8B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E90CBB-89BF-4545-860E-4D13049F8B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E90CBB-89BF-4545-860E-4D13049F8B44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF256B0-826E-423E-BB15-7DAF89572F7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF256B0-826E-423E-BB15-7DAF89572F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF256B0-826E-423E-BB15-7DAF89572F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF256B0-826E-423E-BB15-7DAF89572F7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
