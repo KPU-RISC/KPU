@@ -12,6 +12,7 @@ namespace KPU.ConsoleEmulator
     public class Program
     {
         private static Processor cpu;
+        private static string rootFolder = @"C:\Github\KPU\Assembler\Output\";
         
         public static void Main(string[] args)
         {
@@ -83,7 +84,7 @@ namespace KPU.ConsoleEmulator
         {
             int SECTOR_SIZE = 512;
 
-            using (StreamReader reader = new StreamReader(@"Z:\Klaus\OneDrive\KPU\VirtualDisk.img"))
+            using (StreamReader reader = new StreamReader(rootFolder + "VirtualDisk.img"))
             {    
                 // int sectorsToRead = cpu.F.GetInt();
                 // int startSector = cpu.E.GetInt();
@@ -106,7 +107,7 @@ namespace KPU.ConsoleEmulator
 
         private static void LoadBinaryCode()
         {
-            StreamReader reader = new StreamReader(@"Z:\Klaus\OneDrive\KPU\BinaryCode.bin");
+            StreamReader reader = new StreamReader(rootFolder + "BinaryCode.bin");
             List<byte> opcodes = new List<byte>();
             cpu = new Processor();
 

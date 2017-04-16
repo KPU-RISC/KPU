@@ -22,6 +22,7 @@ namespace KPU.Emulator
         private long instructionsExecuted;
         private MicroTimer microTimer;
         private Memory memoryMapDialog;
+        private string rootFolder = @"C:\Github\KPU\Assembler\Output\";
 
         public cmdInputPortB()
         {
@@ -29,7 +30,7 @@ namespace KPU.Emulator
 
             cpu = new Processor();
             indexForNextInstruction = 0;
-            highlightInstruction = false;
+            highlightInstruction = true;
             instructionsExecuted = 0;
 
             SetupTimer();
@@ -101,7 +102,7 @@ namespace KPU.Emulator
 
         private void LoadBinaryCode()
         {
-            StreamReader reader = new StreamReader(@"Z:\Klaus\OneDrive\KPU\BinaryCode.bin");
+            StreamReader reader = new StreamReader(rootFolder + "BinaryCode.bin");
             List<byte> opcodes = new List<byte>();
             lstAssembly.Items.Clear();
             cpu = new Processor();
