@@ -1,0 +1,2 @@
+java -jar C:\Github\KPU\Assembler\KPU.Assembler\References\antlr-4.5-complete.jar -no-listener -visitor -Dlanguage=CSharp C:\Github\KPU\Assembler\KPU.Assembler\ANTLR\HighLevelAssembly.g4
+java -jar C:\Github\KPU\Assembler\KPU.Assembler\References\antlr-4.5-complete.jar -no-listener -visitor -Dlanguage=CSharp C:\Github\KPU\Assembler\KPU.Assembler\ANTLR\LowLevelAssembly.g4

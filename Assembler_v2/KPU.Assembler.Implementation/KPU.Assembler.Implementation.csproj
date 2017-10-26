@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>BeforeBuild</type>
+          <command>java -jar ANTLR/antlr-4.7-complete.jar -no-listener -visitor -Dlanguage=CSharp ANTLR/LowLevelAssembly.g4</command>
+        </Command>
+        <Command>
+          <type>BeforeBuild</type>
+          <command>java -jar ANTLR/antlr-4.7-complete.jar -no-listener -visitor -Dlanguage=CSharp ANTLR/HighLevelAssembly.g4</command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="ANTLR\Antlr4.Runtime.dll" />
+    <None Remove="ANTLR\antlr-4.5-complete.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Downloads\antlr4-master\runtime\CSharp\runtime\CSharp\Antlr4.Runtime\Antlr4.Runtime.dotnet.csproj" />
+  </ItemGroup>
+</Project>

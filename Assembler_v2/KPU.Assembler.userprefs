@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{BB5AC440-3F1D-4722-BD90-77CF0CF79A5A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KPU.Assembler/Program.cs">
+    <Files>
+      <File FileName="KPU.Assembler/Program.cs" Line="33" Column="54" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.KPU.Assembler PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

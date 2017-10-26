@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <RuntimeIdentifiers>win10-x64;osx.10.12-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KPU.Assembler.Implementation\KPU.Assembler.Implementation.csproj" />
+    <ProjectReference Include="..\..\..\..\Downloads\antlr4-master\runtime\CSharp\runtime\CSharp\Antlr4.Runtime\Antlr4.Runtime.dotnet.csproj" />
+  </ItemGroup>
+</Project>
